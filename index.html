@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>MCA CGPA</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="bg-contact3" style="background-image: url('images/bg-01.jpg');">
+		
+		<div class="container-contact3">
+			<div class="wrap-contact3">
+				<form class="contact3-form validate-form" method="POST">
+					<span class="contact3-form-title">
+						MCA CGPA Calculator
+					</span>
+					<div class="wrap-contact3-form-radio">
+						<div class="contact3-form-radio m-r-42">
+							<input class="input-radio3" id="radio1" type="radio" name="choice" value="reg" checked="checked">
+							<label class="label-radio3" for="radio1">
+								Regular
+							</label>
+						</div>
+
+						<div class="contact3-form-radio">
+							<input class="input-radio3" id="radio2" type="radio" name="choice" value="let">
+							<label class="label-radio3" for="radio2">
+								LET
+							</label>
+						</div>
+					</div>
+
+					<div class="wrap-input3 validate-input">
+						<input class="input3" type="number" step="0.01" id="s1" placeholder="Semester 1">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input">
+						<input class="input3" type="number" step="0.01" id="s2" placeholder="Semester 2">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input">
+						<input class="input3" type="number" step="0.01" id="s3" placeholder="Semester 3">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input">
+						<input class="input3" type="number" step="0.01" id="s4" placeholder="Semester 4">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" id="d5">
+						<input class="input3" type="number" step="0.01" id="s5" placeholder="Semester 5">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" id="d6">
+						<input class="input3" type="number" step="0.01" id="s6" placeholder="Semester 6">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="container-contact3-form-btn">
+						<p class="contact3-form-btn" id="sub">
+							Calculate
+						</p>
+					</div>
+					<br>
+
+					<div class="contact3-form-title"> <h4 id="value"></h4></div>
+				</form>
+			</div>
+			<center>
+				<br>
+				<br>
+				<span>
+					a short work by cruzioredefined
+				</span>
+				<p>
+					<i><b>Disclaimer :</b> This site calculates CGPA based on 2016-2017 MCA Batches and only for those who have completed all the subjects. </i>
+				</p>
+			</center>
+			<br>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<script>
+	$("#radio2").click(function(){
+		$("#d5").hide();
+		$("#d6").hide();
+	});
+	
+	$("#radio1").click(function(){
+		$("#d5").show();
+		$("#d6").show();
+	});
+
+$("#sub").click(function(){
+
+var s1=parseFloat($("#s1").val());
+var s2=parseFloat($("#s2").val());
+var s3=parseFloat($("#s3").val());
+var s4=parseFloat($("#s4").val());
+var totcredit;
+var radioValue = $("input[name='rad']:checked").val();
+		if(radioValue=="reg"){
+			var s5=parseFloat($("#s5").val());
+			var s6=parseFloat($("#s6").val());
+			totcredit=parseInt(123);
+			var total=parseFloat((s1*22+s2*22+s3*22+s4*22+s5*23+s6*12)/totcredit).toFixed(2);
+		}
+		else
+		{
+			totcredit=parseInt(79);
+			var total=parseFloat((s1*22+s2*22+s3*23+s4*12)/totcredit).toFixed(2);
+		}
+// alert(total);
+// console.log(s1);
+// console.log(s2);
+// console.log(s3);
+// console.log(s4);
+$('#placeholder').html("Your CGPA : ");
+$('#value').html(total);
+});
+</script>
+
+</body>
+</html>
