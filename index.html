@@ -149,12 +149,14 @@ var s2=parseFloat($("#s2").val());
 var s3=parseFloat($("#s3").val());
 var s4=parseFloat($("#s4").val());
 var totcredit;
-var radioValue = $("input[name='rad']:checked").val();
+var radioValue = $("input[name='choice']:checked").val();
+console.log(radioValue);
 		if(radioValue=="reg"){
 			var s5=parseFloat($("#s5").val());
 			var s6=parseFloat($("#s6").val());
 			totcredit=parseInt(123);
 			var total=parseFloat((s1*22+s2*22+s3*22+s4*22+s5*23+s6*12)/totcredit).toFixed(2);
+			console.log(parseFloat(s1*22+s2*22+s3*22+s4*22+s5*23+s6*12));
 		}
 		else
 		{
